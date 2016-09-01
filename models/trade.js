@@ -58,7 +58,7 @@ tradeScema.statics.getUsersTrades=function(id,cb){
 			if(err) return cb(err);
 			var folders={inbox:[],outbox:[],rejected:[],accepted:[],cancelled:[]}
 			data.forEach(function(trade){
-				if(trade.status=="Pending"){
+				if(trade.status=="Pending" && trade.bookWanted && trade.bookOffered){
 					if(trade.userInbox._id==id){
 						folders.inbox.push(trade);
 					}else{

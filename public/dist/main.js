@@ -11,29 +11,35 @@ var formatBook=function(book,i){
 }
 
 var formatAuthor=function(authors){
-	if(!authors) return "Anon";
+	if(!authors) return "unlisted";
 	if(authors.length==1) return authors[0];
 
 	return authors.join(", ");
+}
+var formatImgLink=function(link){
+	return link.replace("http","https");
 }
 
 $('.search').on('show.bs.modal',function(){
 	$.getJSON(URL(query.val()),function({items}){
 		var html='';
-		console.log(items)
-		results=items.map(book=>{
-			var _=book.volumeInfo
-			return {title:_.title, 
-					image:_.imageLinks? _.imageLinks.thumbnail : Default_IMG,
-					authors:formatAuthor(_.authors),
-					description:_.description || "No description",
-					pageCount:_.pageCount,
-					publisher:_.publisher,
-					averageRating:_.averageRating}
-				})
-			results.forEach((book,i)=> html+= formatBook(book,i))
-			$(".modal-body").html("<div class='results'>"+html+"</div>")
-			query.val("")	
+		if(items){
+			results=items.map(book=>{
+				var _=book.volumeInfo
+				return {title:_.title, 
+						image:_.imageLinks? formatImgLink(_.imageLinks.thumbnail) : Default_IMG,
+						authors:formatAuthor(_.authors),
+						description:_.description || "No description",
+						pageCount:_.pageCount,
+						publisher:_.publisher,
+						averageRating:_.averageRating}
+					})
+				results.forEach((book,i)=> html+= formatBook(book,i))
+		}else{
+			html="<h3 style='color:black'>No Results for '"+query.val()+"'</h3>"
+		}	
+		$(".modal-body").html("<div class='results'>"+html+"</div>")
+		query.val("")	
 	})
 })
 
