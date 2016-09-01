@@ -1,0 +1,12 @@
+<div class="container">
+	<h3>User's Books</h3>
+	<div class="books">
+	{{#each books}}
+		<div title="{{this.title}}">
+	 		<a href="/book?id={{this._id}}">	
+	 			<img src={{this.image}}/>
+	 		</a>	
+	 	</div>
+	{{/each}}
+	</div>
+</div>

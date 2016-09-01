@@ -1,0 +1,58 @@
+$orange:#feb93b;
+$white:#f7f7f7;
+$green:#174313;
+
+body{
+	background:$green;
+	color:white;
+	width:100%;
+}
+nav{
+	padding-right:20px;
+	background:$white;
+	font-family: 'Merriweather', serif;
+}
+
+
+a,input[type='submit'],select,.panel-body{
+		color:black;
+}
+.title-img{
+	border-radius:40px;
+	box-shadow:3px 2px 14px 5px darken($green,10%);
+}
+.auth-form{
+	background:$orange;
+	width:70%;
+	border-radius:10px;
+	padding:10px;
+	margin:50px auto 0;
+	box-shadow:inset -2px 2px 14px 4px darken($orange,20%);
+	h2{
+		text-align: center;
+		font-weight:bold;
+	}
+	form{
+		width:80%;
+		margin:0 auto;
+	}
+}
+.panel-error{
+	width:50%;
+	margin:10px auto 0;
+	background:#fc9c9c;
+}
+.search-bar{
+	margin:40px auto;
+	label{
+		color:white;
+	}
+
+}
+.search{
+	width:80%;
+	margin:30px auto;
+}
+.results{
+@include bookshelf;
+}

@@ -1,0 +1,28 @@
+<div class="auth-form">
+	<h2>Sign Up!</h2>
+	<form action="/signup" method="post" >
+		<div class="form-group">
+			<label for="username">Select a username:</label>
+			<input type="text" class="form-control" name="username">
+		</div>
+		<div class="form-group">
+			<label for="email">Email:</label>
+			<input type="email" class="form-control" name="email">
+		</div>
+			<div class="form-group">
+			<label for="password">Enter a password:</label>
+			<input type="password" class="form-control" name="password">
+		</div>
+			<div class="form-group">
+			<label for="password_confirm">Confirm Password:</label>
+			<input type="password" class="form-control" name="password_confirm">
+		</div>
+		<input type="submit">
+	</form>
+</div>
+{{#each errors}}
+	<div class="panel panel-error">
+	<span class="glyphicon glyphicon-warning-sign"></span>
+	{{msg}}
+	</div>
+{{/each}}

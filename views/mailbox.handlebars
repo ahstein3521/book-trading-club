@@ -1,0 +1,13 @@
+<div class="container mailbox">
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#inbox" aria-controls="inbox" role="tab" data-toggle="tab">Inbox</a></li>
+    <li role="presentation"><a href="#outbox" aria-controls="outbox" role="tab" data-toggle="tab">Outbox</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="inbox">{{>_inbox}}</div>
+    <div role="tabpanel" class="tab-pane" id="outbox">{{>_outbox}}</div>
+  </div>
+
+</div>

@@ -1,0 +1,41 @@
+<div class="container book-profile">
+	<h1>{{book.title}}</h1>
+	<h5>by {{book.authors}}</h5>
+	<hr/>
+	<div class="row">
+		<div class='col-xs-8'>
+			<article>
+				{{book.description}}
+			</article>
+			{{#if user}}
+				<br>
+				<hr>
+				<select name="book" form="tradeform">
+					<option value="" disabled selected>Find a book to trade..</option>
+					{{#each usersBooks}}
+					<option value="{{this._id}}">{{this.title}}</option>
+					{{/each}}
+				</select>
+				<br>
+				<form id="tradeform" method="post" action="/request?for={{book._id}}&owner={{book.owner._id}}">
+					<input type="submit" value="Request">
+				</form>
+			{{/if}}	
+		</div>
+		<div class='col-xs-4'>
+			<aside>		
+				<img src='{{book.image}}'>
+				{{#if book.averageRating}}
+				<p>Average Rating: {{book.averageRating}} out of 5</p>
+				{{/if}}
+				{{#if book.pageCount}}
+				<p>{{book.pageCount}} pages</p>
+				{{/if}}
+				{{#if book.publisher}}
+				<p><small>{{book.publisher}}</small></p>
+				{{/if}}
+				<p>Owned by: <strong>{{book.owner.username}}</strong></p>
+			</aside>
+		</div>		
+	</div>
+</div>

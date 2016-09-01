@@ -1,0 +1,17 @@
+<nav>
+	<div class="container-fluid">
+		<div class="navbar-header">
+      <a class="navbar-brand" href="/">By The Book!</a>
+		</div>
+    <ul class="navbar-right navbar-nav nav">
+      <li>
+        <a href="/browse">Browse</a>
+      </li>
+    {{#if user}}
+      {{>_loggedin}}
+     {{else}}
+      {{>_loggedout}}
+     {{/if}}
+     </ul>  
+	</div>
+</nav>

@@ -1,0 +1,31 @@
+<div class="panel-group" id="accordion-outbox" role="tablist" aria-multiselectable="true">
+  {{#if outbox}}
+    {{#each outbox}}
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="heading-outbox-{{@index}}">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion-outbox" href="#collapse-outbox{{@index}}" aria-expanded="true" aria-controls="collapse{{@index}}">
+            <strong>To: </strong>{{this.userInbox.username}}
+          </a>
+        </h4>
+        <p>
+          <strong>Request:</strong>
+          {{this.bookOffered.title}} for <em>{{this.bookWanted.title}}</em>
+        </p>
+      </div>
+      <div id="collapse-outbox{{@index}}" class="panel-collapse collapse " role="tabpanel" aria-labelledby="heading-outbox-{{@index}}">
+        <div class="panel-body">
+          <h5>{{this.bookWanted.title}} by {{this.bookWanted.authors}}</h5>
+          <p>{{this.bookWanted.description}}</p>
+          <br>
+          <form action="/trade?id={{this._id}}&_method=DELETE" method="POST">
+            <input type="submit" value="Cancel Request">
+          </form>  
+        </div>
+      </div>
+    </div>
+    {{/each}}
+   {{else}}
+   <h3>Outbox is empty.</h3>
+   {{/if}} 
+</div>  

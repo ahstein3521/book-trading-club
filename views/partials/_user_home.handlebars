@@ -1,0 +1,20 @@
+{{>_search}}
+<div class="container">
+	<div class="search-bar form-inline">
+		<div class="form-group">
+			<label>Add a new book: </label>
+	    	<input class="form-control" type="text">
+	    </div>	
+	    <button type="submit" data-toggle="modal" data-target=".search" class="btn btn-default">Search</button>
+	 </div>
+	 <h3>Library</h3>
+	 <hr>
+	 <div class="books">
+	 {{#each books}}
+	 	<div>
+	 		<span class="close delete-btn" id={{this._id}} title="Remove book from collection">X</span>
+	 		<img src={{this.image}} title="{{this.title}}"/>
+	 	</div>
+	 {{/each}}
+	 </div>
+ </div>

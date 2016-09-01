@@ -1,0 +1,14 @@
+<div class="auth-form">
+	<h2>Update your info</h2>
+	<form action="/settings?_method=PUT" method="post">
+		<div class="form-group">
+			<label for="username">Username:</label>
+			<input type="text" class="form-control" name="username" value={{user.username}}>
+		</div>
+		<div class="form-group">
+			<label for="username">Location:</label>
+			<input type="text" class="form-control" name="location" value={{user.location}}>
+		</div>
+		<input type="submit">
+	</form>
+</div>
